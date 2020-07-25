@@ -2,5 +2,13 @@
     "name": "likeSmasher",
     "version": "1.0",
     "description": "Automatically smashes the like button for your favorite YouTube channels",
+    "permissions": ["declarativeContent"],
+    "background": {
+        "scripts": ["background.js"],
+        "persistent": false
+    },
+    "page_action": {
+        "default_popup": "popup.html"
+    },
     "manifest_version": 2
 }
