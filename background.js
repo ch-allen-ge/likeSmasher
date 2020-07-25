@@ -1,6 +1,8 @@
 'use strict';
 
 chrome.runtime.onInstalled.addListener(function() {
+    console.log('Im in');
+
     chrome.declarativeContent.onPageChanged.removeRules(undefined, function() {
         chrome.declarativeContent.onPageChanged.addRules([{
         conditions: [new chrome.declarativeContent.PageStateMatcher({
@@ -11,3 +13,10 @@ chrome.runtime.onInstalled.addListener(function() {
         }]);
     });
 });
+
+chrome.extension.onConnect.addListener(function(port) {
+    console.log("Connected .....");
+    port.onMessage.addListener(function(msg) {
+         console.log("channel recieved" + msg);
+    });
+})
