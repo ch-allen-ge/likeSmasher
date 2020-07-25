@@ -1,0 +1,6 @@
+{
+    "name": "likeSmasher",
+    "version": "1.0",
+    "description": "Automatically smashes the like button for your favorite YouTube channels",
+    "manifest_version": 2
+}
