@@ -1,12 +1,17 @@
+var channelArray = [];
+
 var port = chrome.extension.connect({
     name: "Sample Communication"
 });
 
-document.getElementById('theForm').addEventListener('submit', function() {
-    console.log('triggered');
-    port.postMessage(document.getElementById('channelName').value);
-});
+var allInputs = document.querySelectorAll("input");
 
-// port.onMessage.addListener(function(msg) {
-//     console.log("message recieved" + msg);
-// });
+allInputs.forEach(function(input) {
+    input.addEventListener("keyup", function(event) {
+        if (event.key === "Enter") {
+            event.preventDefault();
+            channelArray.push(input.value);
+            console.log(channelArray);
+        }
+    });
+});
